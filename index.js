@@ -9,18 +9,18 @@
 fetch("http://localhost:3000/teams-json", {
   method: "GET",
   headers: {
-    "Content-Type": "application/json",
-  },
+    "Content-Type": "application/json"
+  }
 })
-  .then((r) => r.json())
-  .then((teams) => {
+  .then(r => r.json())
+  .then(teams => {
     displayTeams(teams); // apelam functia
   });
 
 function displayTeams(teams) {
   // map = transformare din json in string
   const teamsHtml = teams.map(
-    (team) => `
+    team => `
     <tr>
         <td>${team.promotion}</td>
         <td>${team.members}</td>
@@ -38,17 +38,17 @@ function onSubmit(e) {
   fetch("http://localhost:3000/teams-json/create", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       promotion: promotion.value,
       members: members.value,
       name: name1.value,
-      url: url.value,
-    }),
+      url: url.value
+    })
   })
-    .then((r) => r.json())
-    .then((status) => {
+    .then(r => r.json())
+    .then(status => {
       console.info("status", status.success, status.id);
       if (status.success) {
         window.location.reload();
@@ -60,9 +60,9 @@ function removeTeamRequest(id) {
   fetch("http://localhost:3000/teams-json/delete", {
     method: "DELETE",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify({ id: id }),
+    body: JSON.stringify({ id: id })
   });
 }
 
