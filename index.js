@@ -26,7 +26,7 @@ function displayTeams(teams) {
         <td>${team.members}</td>
         <td>${team.name}</td>
         <td>${team.url}</td>
-        <td></td>
+        <td><a>✖️</a></td>
     </tr>`
   );
   //adaugare in pagina
@@ -35,7 +35,6 @@ function displayTeams(teams) {
 
 function onSubmit(e) {
   e.preventDefault();
-  console.warn("submit", e);
   fetch("http://localhost:3000/teams-json/create", {
     method: "POST",
     headers: {
@@ -50,18 +49,27 @@ function onSubmit(e) {
   })
     .then((r) => r.json())
     .then((status) => {
-      console.warn("status", status.success, status.id);
+      console.info("status", status.success, status.id);
       if (status.success) {
         window.location.reload();
       }
     });
 }
 
-// functia a rol de a face lagaturi intre evenimente.
-
-function initEvents() {
-  const form = document.getElementById("editForm");
-  form.addEventListener("submit", onSubmit);
+function removeTeamRequest(id) {
+  fetch("http://localhost:3000/teams-json/delete", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id: id }),
+  });
 }
 
-initEvents();
+function initEvent() {
+  const form = document.getElementById("editForm");
+  form.addEventListener("submit", onSubmit);
+  document.querySelector("tbody").addEventListener("click");
+}
+
+initEvent();
