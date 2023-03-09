@@ -21,9 +21,9 @@ function displayTeams(teams) {
         <td>${team.members}</td>
         <td>${team.name}</td>
         <td>${team.url}</td>
+        <td></td>
     </tr>`
   );
   //adaugare in pagina
   document.querySelector("#teams tbody").innerHTML = teamsHtml.join("");
-  console.log("display", teamsHtml, teams);
 }

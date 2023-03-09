@@ -9,18 +9,63 @@
   </head>
 
   <body>
-    <table border="2" id="teams">
-      <thead>
-        <tr>
-          <th>Group</th>
-          <th>Members</th>
-          <th>Project Name</th>
-          <th>Project URL</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-      <tfoot></tfoot>
-    </table>
+    <form action="secretara" method="post">
+      <table border="2" id="teams">
+        <thead>
+          <tr>
+            <th>Group</th>
+            <th>Members</th>
+            <th>Project Name</th>
+            <th>Project URL</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <input
+                type="text"
+                id="promotion"
+                name="promotion"
+                placeholder="Enter group"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                id="members"
+                name="members"
+                placeholder="Enter Members"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter project Name"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                id="url"
+                name="url"
+                placeholder="Enter project url"
+                required
+              />
+            </td>
+            <td>
+              <button type="submit">💾</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
     <script src="/index.js"></script>
   </body>
 </html>
