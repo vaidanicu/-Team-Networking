@@ -13,3 +13,14 @@ npm i -D html-webpack-plugin
 # create webpack.config.js file
 
     touch webpack.config.js
+
+## git clone
+
+git clone "https://github.com/vaidanicu/-Team-Networking.git"
+
+-open folder
+-open terminal
+
+## run command
+
+-npm i (download)
